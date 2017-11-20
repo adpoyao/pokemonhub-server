@@ -1,0 +1,11 @@
+language: node_js
+node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: w/aMU6y0p7Br9kYf12PBG4BBO6yLvYvNu8j1yZqGcvbkNLaGQLuUJLGugkdB/58oDPyzOrGMe1FP84NnZHGEyCVdq+gJkuMy1OuahTBcrFNm8MuHpqeDWMzWM7IKN7MLi/qwWKeHxQmlXPcF4VJQB5aWyVqNsu3Nwl7ToEcMdzTJQPE/EwAUPcZahdOlZRLgGi4PxKwdJHkcpTzlinf5ExpN47JcDv3quUIPrmKRu9HEREL1kaCWzfE18T0N51BeMm6mfYBM1jGd/0XheXIUT9EMD2U+XEOIKSXS3JUnKGhKjy+SPHuOmHOlngNvJeKn7gWZKzve0IRltBIqv8sBzbhikPiXLi2N3yGkNDw8f6xrDr96C/1iSC1ZKRmMFGXZ2lpf9quyxVSUjaaI9qQkDqsKhUtkZR5CpOAFDeZs/7nPlv3klUMfxe1OP4GaOYJcfFfaaRNHtF/+PYm+sEZB+mpzyfVIOsehPKJOZJJUXTrLzY3QXoHXyuCU5/RUH6+FyoRBvQZfNLiWSnNbPRWzt1dIywGQRYQQeNssEBzJ+yjOYH7HARXGfqini8EPzvB7gdmY3QmZ1uHnXoBL2PmZfUYNLUhb+px9pXBghP7eG0Pcrw2nq3hCZEbrGSd8HgmNwvxvg9nV9bcKlin8EmAHhXeNpKpRoJ0e+JHIiSMPAiw=
+  app: pokehub
+  on:
+    repo: adpoyao/pokemonhub-server
