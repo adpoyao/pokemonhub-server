@@ -3,6 +3,9 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+
 
 const {PORT, CLIENT_ORIGIN} = require('./config');
 const {dbConnect} = require('./db-mongoose');
@@ -10,7 +13,7 @@ const {dbConnect} = require('./db-mongoose');
 
 const app = express();
 
-const pokeData = [
+let pokeData = [
   {trainer: 'Eddie',
     pokemons: ['Reunculus', 'Frosslass', 'Geninja', 'Venusaur', 'Ho-oh', 'Starmie']}, 
   {trainer: 'Andy',
@@ -31,6 +34,17 @@ app.use(
 
 app.get('/api/pokemon', (req, res) => {
   res.json(pokeData);   
+});
+
+app.post('/api/pokemon', jsonParser, (req, res) => {
+  const {trainer, pokemon} = req.body;
+  pokeData.forEach(data => {
+    if(data.trainer === trainer){
+      data.pokemons.push(pokemon);
+      // data.pokemons = [...data.pokemons, pokemon];
+    }
+    res.json(pokeData);
+  });
 });
 
 function runServer(port = PORT) {
